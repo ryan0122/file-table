@@ -1,12 +1,19 @@
 import React, {useEffect, useRef, useState} from "react";
-import { sampleData } from "./data";
+import { File, sampleData } from "./data";
+import { DownloadIcon  } from "./DownloadIcon";
 import { FileRow } from "./FileRow";
+import styles from "./styles.module.css";
 
 export const FileSelectorTable = ({files = sampleData}) => {
-	const [selected, setSelected] = useState<string[]>([]);	
+	const [selected, setSelected] = useState<File[]>([]);	
 	const toggleAllInput = useRef<HTMLInputElement>(null);
-	const isAllSelected = selected.length === files.length;
+	
+	
+	const downloadableFiles = files.filter((f) => f.status === 'available');
+	const isAllSelected = selected.length === downloadableFiles.length;
 	const isIndeterminate = selected.length > 0 && !isAllSelected;
+	const selectAllText = isAllSelected ? "Unselect All Files" : "Select All Files";
+	const selectedText = selected.length === 0 ? "None selected" : `Selected ${selected.length}`;
 
  	useEffect(() => {
 	    if (toggleAllInput.current) {
@@ -16,46 +23,62 @@ export const FileSelectorTable = ({files = sampleData}) => {
 
 
 	const handleDownloadSelected = () => {
-	
+		
+		const fileList = selected.map(file => `Device: ${file.device}, Path: ${file.path}`).join(", ");
+		const alertMessage = `Downloading the following file${selected.length > 1 ? 's' : ''}: ${fileList}`;
+		
+		alert(alertMessage);
 	};
 
 	const handleToggleAll = () => {
 	
 		if (toggleAllInput.current?.checked) {
 			// If the toggleAllInput is checked, select all files
-			setSelected(files.map(file => file.name));
+			setSelected(downloadableFiles);
 		} else {
 			// If the toggleAllInput is unchecked, clear all selections
 			setSelected([]);
 		}
-
 	};
 
-	const handleToggleSingle = (name: string) => {
+	const handleToggleSingle = (file: File) => {
 		setSelected(prevSelected => {
 			// If the current vaalue is already selected, remove it; otherwise, add it.
-			if (prevSelected.includes(name)) {
-				return prevSelected.filter(fileName => fileName !== name);
+			if (prevSelected.includes(file)) {
+				return prevSelected.filter(fileName => fileName !== file);
 			} else {
 				// Spread the previous state and add the new file name
-				return [...prevSelected, name];
+				return [...prevSelected, file];
 			}
 		}); 	
 	};
 
 	return (
-		<div className="file-selector">
-			<div>
-				<input checked={isAllSelected} type="checkbox" onChange={handleToggleAll} ref={toggleAllInput} />
-				<button onClick={handleDownloadSelected}>Download Selected</button>
+		<div className={styles.fileSelector}>
+			<div className={styles.toolbar}>
+				<div>
+					<input name="selectAllInput" aria-describedby="selectTextElem" aria-label={selectAllText} checked={isAllSelected} type="checkbox" onChange={handleToggleAll} ref={toggleAllInput} />
+					<span id="selectTextElem" aria-live="polite" aria-atomic="true">{selectedText}</span>	
+				</div>
+				
+				<button disabled={selected.length === 0} onClick={handleDownloadSelected}>
+					<span>{<DownloadIcon />}</span>
+					Download Selected
+				</button>
 			</div>
-			<table>
+			<table className={styles.fileSelectorTable}>
+				<caption className={styles.srOnly}>
+				 	File list. Only files with status “Available” can be selected.
+				</caption>
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Device</th>
-						<th>Path</th>
-						<th>Status</th>
+						<th scope="col">
+							<span className={styles.srOnly}>Select Files</span>
+						</th>
+						<th scope="col">Name</th>
+						<th scope="col">Device</th>
+						<th scope="col">Path</th>
+						<th scope="col">Status</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -63,8 +86,8 @@ export const FileSelectorTable = ({files = sampleData}) => {
 						<FileRow 
 							key={index} 
 							file={file} 
-							isChecked={selected.includes(file.name)}
-							onToggle={() => handleToggleSingle(file.name)}
+							isChecked={selected.includes(file)}
+							onToggle={() => handleToggleSingle(file)}
 						/>
 					))}
 				</tbody>

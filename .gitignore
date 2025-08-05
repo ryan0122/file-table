@@ -1,0 +1,11 @@
+# Parcel & build artifacts
+.parcel-cache/
+dist/
+*.bundle
+
+# Node modules
+node_modules/
+
+# TypeScript artifacts
+*.tsbuildinfo
+*.d.ts
