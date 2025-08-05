@@ -1,0 +1,23 @@
+{
+  "name": "file-select-table",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel public/index.html --open",
+    "build": "parcel build public/index.html",
+    "test": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "parcel": "^2.15.4",
+    "typescript": "^5.9.2"
+  }
+}
