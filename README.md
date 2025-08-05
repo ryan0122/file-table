@@ -5,7 +5,7 @@
 ### 1. Clone the Repo
 
 ```bash
-git clone file-select-table.bundle file-select-table
+git clone https://github.com/ryan0122/file-select-table.git
 cd file-select-table
 ```
 
