@@ -1,7 +1,7 @@
 {
   "name": "file-select-table",
   "version": "1.0.0",
-  "description": "",
+  "description": "Component to list files with selection and download capabilities in a table format",
   "scripts": {
     "start": "parcel public/index.html --open",
     "build": "parcel build public/index.html",
