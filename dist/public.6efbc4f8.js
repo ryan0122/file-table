@@ -16150,12 +16150,76 @@ parcelHelpers.export(exports, "FileSelectorTable", ()=>FileSelectorTable);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-const FileSelectorTable = ()=>{
+var _data = require("./data");
+var _fileRow = require("./FileRow");
+const FileSelectorTable = ({ files = (0, _data.sampleData) })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: "test"
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                children: "Name"
+                            }, void 0, false, {
+                                fileName: "src/components/FileSelectorTable.tsx",
+                                lineNumber: 11,
+                                columnNumber: 7
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                children: "Device"
+                            }, void 0, false, {
+                                fileName: "src/components/FileSelectorTable.tsx",
+                                lineNumber: 12,
+                                columnNumber: 7
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                children: "Path"
+                            }, void 0, false, {
+                                fileName: "src/components/FileSelectorTable.tsx",
+                                lineNumber: 13,
+                                columnNumber: 7
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                children: "Status"
+                            }, void 0, false, {
+                                fileName: "src/components/FileSelectorTable.tsx",
+                                lineNumber: 14,
+                                columnNumber: 7
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/FileSelectorTable.tsx",
+                        lineNumber: 10,
+                        columnNumber: 6
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/FileSelectorTable.tsx",
+                    lineNumber: 9,
+                    columnNumber: 5
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
+                    children: files.map((file, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _fileRow.FileRow), {
+                            file: file
+                        }, index, false, {
+                            fileName: "src/components/FileSelectorTable.tsx",
+                            lineNumber: 19,
+                            columnNumber: 7
+                        }, undefined))
+                }, void 0, false, {
+                    fileName: "src/components/FileSelectorTable.tsx",
+                    lineNumber: 17,
+                    columnNumber: 5
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/FileSelectorTable.tsx",
+            lineNumber: 8,
+            columnNumber: 4
+        }, undefined)
     }, void 0, false, {
         fileName: "src/components/FileSelectorTable.tsx",
-        lineNumber: 5,
+        lineNumber: 7,
         columnNumber: 3
     }, undefined);
 };
@@ -16169,7 +16233,7 @@ $RefreshReg$(_c, "FileSelectorTable");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"jnFvT":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./data":"6vPeP","./FileRow":"3kIds"}],"jnFvT":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -18477,6 +18541,111 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["7KwkS","4dmnR"], "4dmnR", "parcelRequire7323", {}, null, null, "http://localhost:1234")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6vPeP":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "sampleData", ()=>sampleData);
+const sampleData = [
+    {
+        name: 'smss.exe',
+        device: 'Mario',
+        path: '\\Device\\HarddiskVolume2\\Windows\\System32\\smss.exe',
+        status: 'scheduled'
+    },
+    {
+        name: 'netsh.exe',
+        device: 'Luigi',
+        path: '\\Device\\HarddiskVolume2\\Windows\\System32\\netsh.exe',
+        status: 'available'
+    },
+    {
+        name: 'uxtheme.dll',
+        device: 'Peach',
+        path: '\\Device\\HarddiskVolume1\\Windows\\System32\\uxtheme.dll',
+        status: 'available'
+    },
+    {
+        name: 'aries.sys',
+        device: 'Daisy',
+        path: '\\Device\\HarddiskVolume1\\Windows\\System32\\aries.sys',
+        status: 'scheduled'
+    },
+    {
+        name: 'cryptbase.dll',
+        device: 'Yoshi',
+        path: '\\Device\\HarddiskVolume1\\Windows\\System32\\cryptbase.dll',
+        status: 'scheduled'
+    },
+    {
+        name: '7za.exe',
+        device: 'Toad',
+        path: '\\Device\\HarddiskVolume1\\temp\\7za.exe',
+        status: 'scheduled'
+    }
+];
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3kIds":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$366d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$366d.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$366d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "FileRow", ()=>FileRow);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const FileRow = ({ file })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                children: file.name
+            }, void 0, false, {
+                fileName: "src/components/FileRow.tsx",
+                lineNumber: 11,
+                columnNumber: 4
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                children: file.device
+            }, void 0, false, {
+                fileName: "src/components/FileRow.tsx",
+                lineNumber: 12,
+                columnNumber: 4
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                children: file.path
+            }, void 0, false, {
+                fileName: "src/components/FileRow.tsx",
+                lineNumber: 13,
+                columnNumber: 4
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                children: file.status
+            }, void 0, false, {
+                fileName: "src/components/FileRow.tsx",
+                lineNumber: 14,
+                columnNumber: 4
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/FileRow.tsx",
+        lineNumber: 10,
+        columnNumber: 3
+    }, undefined);
+};
+_c = FileRow;
+FileRow.displayName = "FileRow";
+var _c;
+$RefreshReg$(_c, "FileRow");
+
+  $parcel$ReactRefreshHelpers$366d.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["7KwkS","4dmnR"], "4dmnR", "parcelRequire7323", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=public.6efbc4f8.js.map

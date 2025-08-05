@@ -1,9 +1,17 @@
 import React from "react";
+import { File } from "./data";
 
-export const FileRow = () => {
+interface FileRowProps {
+	file: File;
+};
+
+export const FileRow = ({file}: FileRowProps) => {
 	return (
 		<tr>
-			<td>test</td>
+			<td>{file.name}</td>
+			<td>{file.device}</td>
+			<td>{file.path}</td>
+			<td>{file.status}</td>
 		</tr>
 	);
 };
