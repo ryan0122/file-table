@@ -6,9 +6,7 @@ import styles from "./styles.module.css";
 
 export const FileSelectorTable = ({files = sampleData}) => {
 	const [selected, setSelected] = useState<File[]>([]);	
-	const toggleAllInput = useRef<HTMLInputElement>(null);
-	
-	
+	const toggleAllInputRef = useRef<HTMLInputElement>(null);
 	const downloadableFiles = files.filter((f) => f.status === 'available');
 	const isAllSelected = selected.length === downloadableFiles.length;
 	const isIndeterminate = selected.length > 0 && !isAllSelected;
@@ -16,8 +14,8 @@ export const FileSelectorTable = ({files = sampleData}) => {
 	const selectedText = selected.length === 0 ? "None selected" : `Selected ${selected.length}`;
 
  	useEffect(() => {
-	    if (toggleAllInput.current) {
-	      toggleAllInput.current.indeterminate = isIndeterminate;
+	    if (toggleAllInputRef.current) {
+	      toggleAllInputRef.current.indeterminate = isIndeterminate;
 	    }
   	}, [isIndeterminate]);
 
@@ -32,7 +30,7 @@ export const FileSelectorTable = ({files = sampleData}) => {
 
 	const handleToggleAll = () => {
 	
-		if (toggleAllInput.current?.checked) {
+		if (toggleAllInputRef.current?.checked) {
 			// If the toggleAllInput is checked, select all files
 			setSelected(downloadableFiles);
 		} else {
@@ -57,7 +55,16 @@ export const FileSelectorTable = ({files = sampleData}) => {
 		<div className={styles.fileSelector}>
 			<div className={styles.toolbar}>
 				<div>
-					<input name="selectAllInput" aria-describedby="selectTextElem" aria-label={selectAllText} checked={isAllSelected} type="checkbox" onChange={handleToggleAll} ref={toggleAllInput} />
+					<input 
+						name="selectAllInput" 
+						aria-describedby="selectTextElem" 
+						aria-label={selectAllText} 
+						checked={isAllSelected} 
+						type="checkbox" 
+						onChange={handleToggleAll} 
+						ref={toggleAllInputRef} 
+						className={isIndeterminate ? styles.indeterminate: ''}
+					/>
 					<span id="selectTextElem" aria-live="polite" aria-atomic="true">{selectedText}</span>	
 				</div>
 				
