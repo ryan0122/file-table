@@ -24,7 +24,7 @@ npm start
 ### 4. Build for Production
 
 ```bash
-npm build
+npm run build
 ```
 
 ### 5. Run tests
