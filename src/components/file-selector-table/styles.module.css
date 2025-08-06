@@ -5,6 +5,10 @@ body {
 }
 
 /* Checkbox */
+label {
+	position: absolute;
+	inset: 0;
+}
 
 input[type="checkbox"] {
 	width: 20px;
@@ -22,7 +26,7 @@ input[type="checkbox"]:disabled {
 	opacity: 0.5;
 }
 
-input[type="checkbox"]:checked {
+input[type="checkbox"]:is(:checked, :indeterminate) {
 	/* using a darker color than design to meet color contrast requirements */
 	background-color: #366ea6;
 	border-color: #366ea6;
@@ -38,11 +42,6 @@ input[type="checkbox"]:checked::after {
 	border: solid white;
 	border-width: 0 2px 2px 0;
 	transform: rotate(45deg);
-}
-
-input[type="checkbox"].indeterminate {
-	background-color: #366ea6;
-	border-color: #366ea6;
 }
 
 input[type="checkbox"].indeterminate::after {
@@ -119,6 +118,16 @@ input[type="checkbox"]:is(:focus, :focus-visible), button:is(:focus, :focus-visi
     flex: 0 0 auto;
 }
 
+/* Enable entire row to be clickable / selectable */
+
+.fileSelectorTable tr {
+	position: relative;
+}
+
+.fileSelectorTable tr:is(.selectable) label {
+	cursor: pointer;
+}
+
 .fileSelectorTable tr:hover {
 	background-color: #efefef;
 }
@@ -127,7 +136,7 @@ input[type="checkbox"]:is(:focus, :focus-visible), button:is(:focus, :focus-visi
 	background-color: #eee;
 }
 
-/* FileRow */
+/* FileRow - Status Cell */
 
 .statusCell {
 	text-transform: capitalize;
