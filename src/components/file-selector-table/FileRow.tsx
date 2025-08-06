@@ -2,7 +2,7 @@ import React, {useId} from "react";
 import { File } from "./data";
 import styles from "./styles.module.css";
 
-interface FileRowProps {
+interface FileRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
 	file: File;
 	isChecked: boolean;
 	onToggle: () => void;

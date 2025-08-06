@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, getByTestId } from '@testing-library/react';
 import { FileRow } from '../FileRow';
 import { File } from '../data';
 import '@testing-library/jest-dom';
@@ -24,5 +24,9 @@ describe('FileRow Component', () => {
 	    const checkbox = screen.getByRole('checkbox');
 	    fireEvent.click(checkbox);
 	    expect(toggleMock).toHaveBeenCalled();
+
+		 const label = screen.getByLabelText('Select file netsh.exe on device Luigi')
+		 fireEvent.click(label);
+		 expect(toggleMock).toHaveBeenCalled();
     });
 });
