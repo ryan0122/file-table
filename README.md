@@ -6,7 +6,7 @@
 
 ```bash
 git clone https://github.com/ryan0122/file-table.git
-cd file-select-table
+cd file-table
 ```
 
 ### 2. Install Dependencies
